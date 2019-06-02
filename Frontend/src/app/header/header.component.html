@@ -1,0 +1,20 @@
+<mat-toolbar color="primary">
+	<span style="color:goldenrod;margin-right: 30px;">Keep</span>
+	<div *ngIf="isAutenticated">
+		<span routerLinkActive="active">
+			<a routerLink="/dashboard">Dashboard</a>
+		</span>
+		<span routerLinkActive="active">
+			<a routerLink="/category">Category</a>
+		</span>
+		<span routerLinkActive="active">
+			<a routerLink="/reminder">Reminder</a>
+		</span>
+	</div>
+
+	<div class="keep-c-toggle-view" *ngIf="isAutenticated">
+		<i class="material-icons" (click)="logout()" style="color: red">power_settings_new</i>
+		<i *ngIf="isNoteView" class="material-icons switchToListView" (click)="switchToListView()">view_list</i>
+		<i *ngIf="!isNoteView" class="material-icons switchToNoteView" (click)="switchToNoteView()">view_quilt</i>
+	</div>
+</mat-toolbar>

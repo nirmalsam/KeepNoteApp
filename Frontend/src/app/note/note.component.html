@@ -1,0 +1,10 @@
+<mat-card class="note-card" (click)="openEditView()">
+    <mat-card-title>{{note?.noteTitle | titlecase}}</mat-card-title>
+    <mat-card-content><b>Content: </b> {{note?.noteContent | titlecase}}</mat-card-content>
+    <mat-card-content><b>Status: </b> {{note?.noteStatus | titlecase}}</mat-card-content>
+    <mat-card-content><b>Created At: </b> {{note?.createdAt | date: 'dd-MM-yyyy'}}</mat-card-content>
+    <mat-card-content><b>Category: </b> {{note?.category?.categoryName | titlecase}}</mat-card-content>
+    <mat-card-content><b>Reminder: </b> 
+        <span *ngFor="let rem of note?.reminder">{{rem?.reminderName | titlecase}}, </span>
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,48 @@
+<div class="example-form">
+  <h3>Add Category</h3>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Category Name" [(ngModel)]="category.categoryName">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Description" [(ngModel)]="category.categoryDescription">
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="onSaveUpdate()" style="float: right">Save</button>
+</div>
+<br><br><br>
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <!-- Position Column -->
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> Cat.Name </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.categoryName}} </mat-cell>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="description">
+    <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.categoryDescription}} </mat-cell>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="date">
+    <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.categoryCreationDate | date: 'dd-MM-yyyy'}} </mat-cell>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="update">
+    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <button mat-stroked-button color="primary" (click)="onUpdate(element)">Update</button>
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="delete">
+    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+    <mat-cell *matCellDef="let element">
+        <button mat-stroked-button color="warn" (click)="deleteCategory(element)">Delete</button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

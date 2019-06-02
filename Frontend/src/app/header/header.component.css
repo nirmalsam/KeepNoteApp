@@ -1,0 +1,22 @@
+.keep-c-toggle-view {
+	width: 100%;
+	cursor: pointer;
+}
+
+i {
+	float: right !important;
+}
+
+a {
+	text-decoration: none !important;
+	color: whitesmoke;
+	height: 64px;
+	padding: 21px 15px;
+	border-right: 1px solid whitesmoke;
+}
+
+.active {
+	margin-left: -10px;
+	padding: 21px 0px;
+	background-color: rgb(245, 192, 78);
+}

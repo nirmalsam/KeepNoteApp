@@ -1,0 +1,39 @@
+<div class="register-container">
+
+  <form class="register-form" [formGroup]="regForm" (submit)='regSubmit(regForm)'>
+    <h6>Enter all fields !!!</h6>
+
+    <mat-form-field>
+      <input class="userId" matInput [formControl]='userId' placeholder="Enter User Id">
+      <mat-error *ngIf="regForm.get('userId').dirty && regForm.get('userId').hasError('required')">UserId Cannot be blank !!!</mat-error>
+      <mat-error *ngIf="regForm.get('userId').dirty && regForm.get('userId').hasError('minlength')">UserId Cannot be less than 3 characters !!!</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input class="firstName" matInput [formControl]='firstName' placeholder="Enter First Name">
+      <mat-error *ngIf="regForm.get('firstName').dirty && regForm.get('firstName').hasError('required')">First Name Cannot be blank !!!</mat-error>
+      <mat-error *ngIf="regForm.get('firstName').dirty && regForm.get('firstName').hasError('minlength')">First Name Cannot be less than 3 characters !!!</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input class="username" matInput [formControl]='lastName' placeholder="Enter Last Name">
+      <mat-error *ngIf="regForm.get('lastName').dirty && regForm.get('lastName').hasError('required')">Last Name Cannot be blank !!!</mat-error>
+      <mat-error *ngIf="regForm.get('lastName').dirty && regForm.get('lastName').hasError('minlength')">Last Name Cannot be less than 3 characters !!!</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input class="userPassword" matInput type='password' [formControl]='userPassword' placeholder="Enter Password">
+      <mat-error *ngIf="regForm.get('userPassword').dirty && regForm.get('userPassword').hasError('required')">Password Cannot be blank !!!</mat-error>
+      <mat-error *ngIf="regForm.get('userPassword').dirty && regForm.get('userPassword').hasError('minlength')">Password Cannot be less than 3 characters !!!</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input class="username" matInput [formControl]='userRole' placeholder="Enter User Role">
+      <mat-error *ngIf="regForm.get('userRole').dirty && regForm.get('userRole').hasError('required')">Role Cannot be blank !!!</mat-error>
+      <mat-error *ngIf="regForm.get('userRole').dirty && regForm.get('userRole').hasError('minlength')">Role Cannot be less than 3 characters !!!</mat-error>
+    </mat-form-field>
+    <a routerLink="/login">Login</a>
+    <button type="submit" mat-button>Submit</button>
+    <mat-error *ngIf='submitMessage' class="error-message">{{submitMessage}}</mat-error>
+  </form>
+</div>

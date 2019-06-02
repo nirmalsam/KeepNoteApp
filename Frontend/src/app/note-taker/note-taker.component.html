@@ -1,0 +1,47 @@
+<!-- Label to display any error messages -->
+<div class="error-message">{{ errMessage }}</div>
+
+<!-- Expansion panel to add new notes -->
+
+<div class="note-container">
+    <mat-expansion-panel class="note-expansion-panel">
+        <mat-expansion-panel-header>
+            <mat-panel-title>Take a note</mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <div class="note-form">
+            <mat-form-field>
+                <input name="title" matInput placeholder="Title" [(ngModel)]="note.noteTitle">
+            </mat-form-field>
+
+            <mat-form-field>
+                <textarea name="text" matInput placeholder="text" [(ngModel)]="note.noteContent"></textarea>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Select note status</mat-label>
+                <mat-select [(ngModel)]="note.noteStatus">
+                    <mat-option value="not-started">Not Started</mat-option>
+                    <mat-option value="started">Started</mat-option>
+                    <mat-option value="completed">Completed</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Select category</mat-label>
+                <mat-select [(ngModel)]="note.category">
+                    <mat-option *ngFor="let cat of categories" [value]=cat>{{cat?.categoryName}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Select reminder</mat-label>
+                <mat-select multiple [(ngModel)]="note.reminder">
+                    <mat-option *ngFor="let rem of reminders" [value]=rem>{{rem?.reminderName}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <button mat-raised-button color="primary" (click)="addNote()" style="float:right">Done</button>
+        <br><br>
+    </mat-expansion-panel>
+</div>

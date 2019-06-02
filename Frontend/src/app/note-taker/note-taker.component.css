@@ -1,0 +1,27 @@
+.note-container
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 10vh;
+}
+
+.note-expansion-panel
+{
+    margin: 0 auto;
+    width: 70vw;
+}
+
+.note-form
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.error-message {
+    width: 100%;
+    text-align: center;
+    color: red;
+    font-weight: bold;
+    padding-top: 10px;
+}

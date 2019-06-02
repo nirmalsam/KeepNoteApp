@@ -1,0 +1,22 @@
+<div class="login-container">
+
+  <form class="login-form" [formGroup]="loginForm" (submit)='loginSubmit(loginForm)'>
+    <h6>Enter Username and Password !!!</h6>
+    <mat-form-field>
+      <input class="username" matInput [formControl]='username' placeholder="Enter User Name">
+      <!-- <mat-error *ngIf = 'username.invalid'>{{getErrorMessage()}}</mat-error> -->
+      <mat-error *ngIf="loginForm.get('username').dirty && loginForm.get('username').hasError('required')">UserName Cannot be blank !!!</mat-error>
+      <mat-error *ngIf="loginForm.get('username').dirty && loginForm.get('username').hasError('minlength')">UserName Cannot be less than 3 characters !!!</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input class="password" matInput type='password' [formControl]='password' placeholder="Enter Password">
+      <!-- <mat-error *ngIf = 'password.invalid'>{{getErrorMessage()}}</mat-error> -->
+      <mat-error *ngIf="loginForm.get('password').dirty && loginForm.get('password').hasError('required')">Password Cannot be blank !!!</mat-error>
+      <mat-error *ngIf="loginForm.get('password').dirty && loginForm.get('password').hasError('minlength')">Password Cannot be less than 3 characters !!!</mat-error>
+    </mat-form-field>
+    <a routerLink="/register">Register</a>
+    <button type="submit" mat-button color=primary>Submit</button>
+    <mat-error *ngIf='submitMessage' class="error-message">{{submitMessage}}</mat-error>
+  </form>
+</div>
